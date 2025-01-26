@@ -37,7 +37,8 @@ class LocalDateTimeAssert_isEqualToIgnoringHours_Test {
   @Test
   void should_fail_if_actual_is_equal_to_expected_ignoring_hour_fields_but_has_less_years() {
     // WHEN
-    AssertionError assertionError = expectAssertionError(() -> assertThat(refLocalDateTime).isEqualToIgnoringHours(refLocalDateTime.plusHours(1).plusYears(1)));
+    AssertionError assertionError = expectAssertionError(() -> assertThat(refLocalDateTime).isEqualToIgnoringHours(refLocalDateTime.plusHours(1)
+                                                                                                                                   .plusYears(1)));
     // THEN
     then(assertionError).hasMessage(format("%nExpecting actual:%n  2000-01-02T00:00 (java.time.LocalDateTime)%nto have same year, month and day as:%n  2001-01-02T01:00 (java.time.LocalDateTime)%nbut had not."));
 
@@ -46,7 +47,8 @@ class LocalDateTimeAssert_isEqualToIgnoringHours_Test {
   @Test
   void should_fail_if_actual_is_equal_to_expected_ignoring_hour_fields_but_has_less_months() {
     // WHEN
-    AssertionError assertionError = expectAssertionError(() -> assertThat(refLocalDateTime).isEqualToIgnoringHours(refLocalDateTime.plusHours(1).plusMonths(1)));
+    AssertionError assertionError = expectAssertionError(() -> assertThat(refLocalDateTime).isEqualToIgnoringHours(refLocalDateTime.plusHours(1)
+                                                                                                                                   .plusMonths(1)));
     // THEN
     then(assertionError).hasMessage(format("%nExpecting actual:%n  2000-01-02T00:00 (java.time.LocalDateTime)%nto have same year, month and day as:%n  2000-02-02T01:00 (java.time.LocalDateTime)%nbut had not."));
 
